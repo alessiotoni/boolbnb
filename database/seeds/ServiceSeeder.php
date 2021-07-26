@@ -74,6 +74,8 @@ class ServiceSeeder extends Seeder
             $new_servicesaccomodations = new Service();
 
             $new_servicesaccomodations->fill($service);
+            // $new_servicesaccomodations->title = $service;
+
 
             $new_servicesaccomodations->save();
         }

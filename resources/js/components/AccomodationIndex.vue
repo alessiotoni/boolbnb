@@ -11,6 +11,10 @@
             v-model="filters.city">
             </text-input>
 
+            <text-input label="indirizzo"
+            v-model="filters.address">
+            </text-input>
+
             <text-input label="N. minimo di stanze"
             v-model="filters.number_rooms">
             </text-input>
@@ -22,18 +26,29 @@
             <range-input label="Distanza"
             v-model="filters.distance">
             </range-input>
-          </div>
 
-          <div v-for="service in services" :key="service.city">
-            <label :for="service.city">
-              {{ service.title }}
-              <input type="checkbox"
-              v-model="filters.services" :value="service.id" :name="service.city" :id="service.city">
-            </label>
+            <div>
+              <multi-check-input label="Servizi"
+                :items="servicesList"
+                v-model="filters.services">
+              </multi-check-input>
+            </div>
+           
+
+            <!-- <div v-for="service in services" :key="service.city">
+              <label :for="service.city">
+                {{ service.title }}
+                <input type="checkbox"
+                v-model="filters.services" :value="service.id" :name="service.city" :id="service.city">
+              </label>
+            </div> -->
           </div>
 
           <div>
-            <input type="button" value="FILTRA" @click="callAccomodation()">
+            <!-- <input type="button" value="FILTRA" @click="callAccomodation()"> -->
+            <button type="submit" class="btn btn-primary">filtra</button>
+            <button type="reset" class="btn btn-primary">annulla filtri</button>
+
           </div>
         </form>
 
@@ -56,7 +71,6 @@
       </div>
 
       <div class="col-8">
-        <!-- <div id="map" class="map"></div> -->
       </div>
     </div>
   </div>
@@ -69,30 +83,31 @@ export default {
     return {
       originalAccomodation: [],
       filteredAccomodation: [],
-      services: [],
+      servicesList: [],
       filters: {
-        city: "",
-        number_rooms: "",
-        number_beds: "",
-        distance: "",
-        services: []
+        city: null,
+        address: null,
+        number_rooms: null,
+        number_beds: null,
+        distance: null,
+        services: null, 
       }
       // urlGetPosition: "https://api.tomtom.com/search/2/geocode/" + accomodation.province + "%20" + accomodation.city + "%20" + accomodation.type_street + "%20" + accomodation.street_name + "%20" + accomodation.building_number + ".json?Key=t4QufcKAvdkiBeKqaOB5kwMYk71Rx8b6",
     };
   },
   methods: {
-    callAccomodation() {
-      axios.get("/api/accomodation", {
-              params: this.filters
+    // callAccomodation() {
+    //   axios.get("/api/accomodation", {
+    //           params: this.filters
               
-            })
-            .then(resp => {
-              this.originalAccomodation = resp.data.results;
-              this.filteredAccomodation = resp.data.results;
-              console.log(this.filters.services)
-            })
-            .catch(er => console.log(er));
-    },
+    //         })
+    //         .then(resp => {
+    //           this.originalAccomodation = resp.data.results;
+    //           this.filteredAccomodation = resp.data.results;
+    //           console.log(this.filters.services)
+    //         })
+    //         .catch(er => console.log(er));
+    // },
     callMap() {
       this.originalAccomodation.forEach(accomodation => {
       var compactStreetName = accomodation.street_name.replace(/\s/g, '');
@@ -112,17 +127,45 @@ export default {
 
       });
     },
-    callServices() {
-      axios.get("/api/services")
-          .then(resp => {
-            this.services = resp.data.results;
-          });
+    // callServices() {
+    //   axios.get("/api/services")
+    //       .then(resp => {
+    //         this.services = resp.data.results;
+    //       });
+    // }
+    filterData() {
+      axios.get("/api/accomodation/filter", {
+        params: this.filters
+      })
+      .then(resp => {
+        this.filteredAccomodation = resp.data.results;
+      })
+      .catch (er => {
+        console.error(er);
+        alert("errore")
+      });
     }
   },
   mounted() {
-    this.callAccomodation();
-    this.callServices();
+    // this.callAccomodation();
+    // this.callServices();
     this.callMap();
+
+    axios.get("/api/accomodation")
+    .then(resp => {
+        this.originalAccomodation = resp.data.results.data;
+        this.filteredAccomodation = resp.data.results.data;
+    })
+    .catch(er => {
+      console.error(er);
+    });
+    axios.get("/api/services")
+    .then(resp => {
+      this.servicesList = resp.data.results;
+    })
+    .catch(er => {
+      console.error(er);
+    });
   }
 };
 </script>

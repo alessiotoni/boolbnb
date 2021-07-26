@@ -1972,37 +1972,50 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "AccomodationIndex",
   data: function data() {
     return {
       originalAccomodation: [],
       filteredAccomodation: [],
-      services: [],
+      servicesList: [],
       filters: {
-        city: "",
-        number_rooms: "",
-        number_beds: "",
-        distance: "",
-        services: []
+        city: null,
+        address: null,
+        number_rooms: null,
+        number_beds: null,
+        distance: null,
+        services: null
       } // urlGetPosition: "https://api.tomtom.com/search/2/geocode/" + accomodation.province + "%20" + accomodation.city + "%20" + accomodation.type_street + "%20" + accomodation.street_name + "%20" + accomodation.building_number + ".json?Key=t4QufcKAvdkiBeKqaOB5kwMYk71Rx8b6",
 
     };
   },
   methods: {
-    callAccomodation: function callAccomodation() {
-      var _this = this;
-
-      axios.get("/api/accomodation", {
-        params: this.filters
-      }).then(function (resp) {
-        _this.originalAccomodation = resp.data.results;
-        _this.filteredAccomodation = resp.data.results;
-        console.log(_this.filters.services);
-      })["catch"](function (er) {
-        return console.log(er);
-      });
-    },
+    // callAccomodation() {
+    //   axios.get("/api/accomodation", {
+    //           params: this.filters
+    //         })
+    //         .then(resp => {
+    //           this.originalAccomodation = resp.data.results;
+    //           this.filteredAccomodation = resp.data.results;
+    //           console.log(this.filters.services)
+    //         })
+    //         .catch(er => console.log(er));
+    // },
     callMap: function callMap() {
       this.originalAccomodation.forEach(function (accomodation) {
         var compactStreetName = accomodation.street_name.replace(/\s/g, '');
@@ -2015,18 +2028,42 @@ __webpack_require__.r(__webpack_exports__);
         });
       });
     },
-    callServices: function callServices() {
-      var _this2 = this;
+    // callServices() {
+    //   axios.get("/api/services")
+    //       .then(resp => {
+    //         this.services = resp.data.results;
+    //       });
+    // }
+    filterData: function filterData() {
+      var _this = this;
 
-      axios.get("/api/services").then(function (resp) {
-        _this2.services = resp.data.results;
+      axios.get("/api/accomodation/filter", {
+        params: this.filters
+      }).then(function (resp) {
+        _this.filteredAccomodation = resp.data.results;
+      })["catch"](function (er) {
+        console.error(er);
+        alert("errore");
       });
     }
   },
   mounted: function mounted() {
-    this.callAccomodation();
-    this.callServices();
+    var _this2 = this;
+
+    // this.callAccomodation();
+    // this.callServices();
     this.callMap();
+    axios.get("/api/accomodation").then(function (resp) {
+      _this2.originalAccomodation = resp.data.results.data;
+      _this2.filteredAccomodation = resp.data.results.data;
+    })["catch"](function (er) {
+      console.error(er);
+    });
+    axios.get("/api/services").then(function (resp) {
+      _this2.servicesList = resp.data.results;
+    })["catch"](function (er) {
+      console.error(er);
+    });
   }
 });
 
@@ -2060,6 +2097,64 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     console.log('Component mounted.');
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/formInput/MultiCheckInput.vue?vue&type=script&lang=js&":
+/*!************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/formInput/MultiCheckInput.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "MultiCheckInput",
+  props: {
+    items: {
+      type: Array,
+      required: true
+    },
+    label: String,
+    value: Array
+  },
+  data: function data() {
+    return {
+      selectedValues: []
+    };
+  },
+  methods: {
+    onChange: function onChange(ev) {
+      var checked = ev.target.checked;
+
+      if (checked) {
+        //per leggere l'id del services
+        this.selectedValues.push(ev.target.value);
+      } else {
+        var index = this.selectedValues.indexOf(ev.target.value);
+        this.selectedValues.splice(index, 1);
+      }
+
+      this.$emit("input", this.selectedValues);
+    }
   }
 });
 
@@ -37836,6 +37931,17 @@ var render = function() {
                 }),
                 _vm._v(" "),
                 _c("text-input", {
+                  attrs: { label: "indirizzo" },
+                  model: {
+                    value: _vm.filters.address,
+                    callback: function($$v) {
+                      _vm.$set(_vm.filters, "address", $$v)
+                    },
+                    expression: "filters.address"
+                  }
+                }),
+                _vm._v(" "),
+                _c("text-input", {
                   attrs: { label: "N. minimo di stanze" },
                   model: {
                     value: _vm.filters.number_rooms,
@@ -37866,82 +37972,30 @@ var render = function() {
                     },
                     expression: "filters.distance"
                   }
-                })
+                }),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  [
+                    _c("multi-check-input", {
+                      attrs: { label: "Servizi", items: _vm.servicesList },
+                      model: {
+                        value: _vm.filters.services,
+                        callback: function($$v) {
+                          _vm.$set(_vm.filters, "services", $$v)
+                        },
+                        expression: "filters.services"
+                      }
+                    })
+                  ],
+                  1
+                )
               ],
               1
             ),
             _vm._v(" "),
-            _vm._l(_vm.services, function(service) {
-              return _c("div", { key: service.city }, [
-                _c("label", { attrs: { for: service.city } }, [
-                  _vm._v(
-                    "\n            " + _vm._s(service.title) + "\n            "
-                  ),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.filters.services,
-                        expression: "filters.services"
-                      }
-                    ],
-                    attrs: {
-                      type: "checkbox",
-                      name: service.city,
-                      id: service.city
-                    },
-                    domProps: {
-                      value: service.id,
-                      checked: Array.isArray(_vm.filters.services)
-                        ? _vm._i(_vm.filters.services, service.id) > -1
-                        : _vm.filters.services
-                    },
-                    on: {
-                      change: function($event) {
-                        var $$a = _vm.filters.services,
-                          $$el = $event.target,
-                          $$c = $$el.checked ? true : false
-                        if (Array.isArray($$a)) {
-                          var $$v = service.id,
-                            $$i = _vm._i($$a, $$v)
-                          if ($$el.checked) {
-                            $$i < 0 &&
-                              _vm.$set(
-                                _vm.filters,
-                                "services",
-                                $$a.concat([$$v])
-                              )
-                          } else {
-                            $$i > -1 &&
-                              _vm.$set(
-                                _vm.filters,
-                                "services",
-                                $$a.slice(0, $$i).concat($$a.slice($$i + 1))
-                              )
-                          }
-                        } else {
-                          _vm.$set(_vm.filters, "services", $$c)
-                        }
-                      }
-                    }
-                  })
-                ])
-              ])
-            }),
-            _vm._v(" "),
-            _c("div", [
-              _c("input", {
-                attrs: { type: "button", value: "FILTRA" },
-                on: {
-                  click: function($event) {
-                    return _vm.callAccomodation()
-                  }
-                }
-              })
-            ])
-          ],
-          2
+            _vm._m(0)
+          ]
         )
       ])
     ]),
@@ -37987,7 +38041,26 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c(
+        "button",
+        { staticClass: "btn btn-primary", attrs: { type: "submit" } },
+        [_vm._v("filtra")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        { staticClass: "btn btn-primary", attrs: { type: "reset" } },
+        [_vm._v("annulla filtri")]
+      )
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -38035,6 +38108,56 @@ var staticRenderFns = [
     ])
   }
 ]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/formInput/MultiCheckInput.vue?vue&type=template&id=6f36fa37&":
+/*!****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/formInput/MultiCheckInput.vue?vue&type=template&id=6f36fa37& ***!
+  \****************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm.items.length
+    ? _c(
+        "div",
+        [
+          _c("label", [_vm._v(_vm._s(_vm.label))]),
+          _vm._v(" "),
+          _vm._l(_vm.items, function(item) {
+            return _c(
+              "div",
+              { key: item.id, staticClass: "form-check form-check-inline" },
+              [
+                _c("label", { staticClass: "form-check-label" }, [
+                  _c("input", {
+                    staticClass: "form-check-input",
+                    attrs: { type: "checkbox" },
+                    domProps: { value: item.id },
+                    on: { change: _vm.onChange }
+                  }),
+                  _vm._v("\n            " + _vm._s(item.title) + "\n        ")
+                ])
+              ]
+            )
+          })
+        ],
+        2
+      )
+    : _vm._e()
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -50344,6 +50467,7 @@ module.exports = function(module) {
 var map = {
 	"./components/AccomodationIndex.vue": "./resources/js/components/AccomodationIndex.vue",
 	"./components/ExampleComponent.vue": "./resources/js/components/ExampleComponent.vue",
+	"./components/formInput/MultiCheckInput.vue": "./resources/js/components/formInput/MultiCheckInput.vue",
 	"./components/formInput/RangeInput.vue": "./resources/js/components/formInput/RangeInput.vue",
 	"./components/formInput/TextInput.vue": "./resources/js/components/formInput/TextInput.vue"
 };
@@ -50594,6 +50718,75 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/formInput/MultiCheckInput.vue":
+/*!***************************************************************!*\
+  !*** ./resources/js/components/formInput/MultiCheckInput.vue ***!
+  \***************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _MultiCheckInput_vue_vue_type_template_id_6f36fa37___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MultiCheckInput.vue?vue&type=template&id=6f36fa37& */ "./resources/js/components/formInput/MultiCheckInput.vue?vue&type=template&id=6f36fa37&");
+/* harmony import */ var _MultiCheckInput_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MultiCheckInput.vue?vue&type=script&lang=js& */ "./resources/js/components/formInput/MultiCheckInput.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _MultiCheckInput_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _MultiCheckInput_vue_vue_type_template_id_6f36fa37___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _MultiCheckInput_vue_vue_type_template_id_6f36fa37___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/formInput/MultiCheckInput.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/formInput/MultiCheckInput.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************!*\
+  !*** ./resources/js/components/formInput/MultiCheckInput.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MultiCheckInput_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./MultiCheckInput.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/formInput/MultiCheckInput.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MultiCheckInput_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/formInput/MultiCheckInput.vue?vue&type=template&id=6f36fa37&":
+/*!**********************************************************************************************!*\
+  !*** ./resources/js/components/formInput/MultiCheckInput.vue?vue&type=template&id=6f36fa37& ***!
+  \**********************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MultiCheckInput_vue_vue_type_template_id_6f36fa37___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./MultiCheckInput.vue?vue&type=template&id=6f36fa37& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/formInput/MultiCheckInput.vue?vue&type=template&id=6f36fa37&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MultiCheckInput_vue_vue_type_template_id_6f36fa37___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MultiCheckInput_vue_vue_type_template_id_6f36fa37___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/components/formInput/RangeInput.vue":
 /*!**********************************************************!*\
   !*** ./resources/js/components/formInput/RangeInput.vue ***!
@@ -50750,8 +50943,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/alessiotonielli/Boolean/ProgettoFinale/boolbnb/boolbnb/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/alessiotonielli/Boolean/ProgettoFinale/boolbnb/boolbnb/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\giuli\OneDrive\Desktop\boolbnb-1\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\giuli\OneDrive\Desktop\boolbnb-1\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

@@ -133,4 +133,15 @@ class AccomodationController extends Controller
 
         return redirect()->route('logged.dashboard', $user_id);
     }
+
+    // public function filter(Request $request) {
+    //     $filters = $request->all();
+
+        
+
+    //     $accomodations = Accomodation::join("accomodation_service", "accomodations.id", "=", "accomodation_service.accomodation_id")
+    //         ->where("accomodation_service.service_id", $filters["services"])->get();
+
+    //     return redirect()->route("logged.accomodation.show")->with(["accomodations" => $accomodations]);
+    // }
 }
