@@ -9,6 +9,7 @@ use App\Service;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Route;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
 use PHPUnit\Framework\Constraint\IsFalse;
 
@@ -49,6 +50,10 @@ class AccomodationController extends Controller
         ]);
 
         $data = $request->all();
+        $address = $request->province . '%20' . $request->city . '%20' . $request->type_street . '%20' . $request->street_name . '%20' . $request->building_number;
+        $response = Http::withOptions(['verify' => false])->get('https://api.tomtom.com/search/2/geocode/' . $address . '.json?Key=t4QufcKAvdkiBeKqaOB5kwMYk71Rx8b6')->json();
+        $lat = $response['results'][0]['position']['lat'];
+        $lon = $response['results'][0]['position']['lon'];
 
         $new_accomodation = new Accomodation();
 
@@ -59,12 +64,14 @@ class AccomodationController extends Controller
         }
 
         $new_accomodation->user_id = $request->user()->id;
-
-        $new_accomodation->save();
+        $new_accomodation->lat = $lat;
+        $new_accomodation->lon = $lon;
 
         if (isset($data['services'])) {
             $new_accomodation->services()->sync($data['services']);
+            $new_accomodation->count_services = count($data['services']);
         }
+        $new_accomodation->save();
 
         return redirect()->route('logged.show', $new_accomodation->id);
     }
@@ -123,21 +130,27 @@ class AccomodationController extends Controller
 
             $data = $request->all();
 
-            // $accomodation->fill($data);
-            // if(isset($data['placeholder'])) {
-            //     $accomodation->placeholder = Storage::put('placeholder', $data['placeholder']);
-            // }
+            $address = $request->province . '%20' . $request->city . '%20' . $request->type_street . '%20' . $request->street_name . '%20' . $request->building_number;
+            $response = Http::withOptions(['verify' => false])->get('https://api.tomtom.com/search/2/geocode/' . $address . '.json?Key=t4QufcKAvdkiBeKqaOB5kwMYk71Rx8b6')->json();
+            $lat = $response['results'][0]['position']['lat'];
+            $lon = $response['results'][0]['position']['lon'];
+
+            $accomodation->lat = $lat;
+            $accomodation->lon = $lon;
+
             if (key_exists("placeholder", $data)) {
                 if ($accomodation->placeholder) {
                     Storage::delete($accomodation->placeholder);
                 }
                 $placeholder = Storage::put("placeholder", $data["placeholder"]);
-    
+
                 $data["placeholder"] = $placeholder;
             }
             $accomodation->update($data);
 
             if (isset($data['services'])) {
+                $accomodation->count_services = count($data['services']);
+
                 $accomodation->services()->sync($data['services']);
             }
 
