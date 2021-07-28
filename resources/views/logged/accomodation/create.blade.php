@@ -76,6 +76,11 @@
             <label for="placeholder">Carica img di copertina</label>
             <input type="file" name="placeholder" id="placeholder" accept=".jpg, .png, .svg, .jpeg">
         </div>
+        {{-- SLIDER --}}
+        {{-- <div class="form-group">
+          <label for="placeholder">Carica più immagini</label>
+          <input type="file" name="cover_url" id="placeholder" accept=".jpg, .png, .svg, .jpeg" class="form-control-file">
+        </div> --}}
 
         {{-- services  --}}
         <div class="form-group">

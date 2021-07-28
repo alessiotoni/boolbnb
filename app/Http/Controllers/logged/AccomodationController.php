@@ -115,7 +115,7 @@ class AccomodationController extends Controller
     public function update(Request $request, $id)
     {
         $accomodation = Accomodation::findOrFail($id);
-
+        
         if (Auth::user()->id == $accomodation->user_id) {
 
             $request->validate([
@@ -157,8 +157,9 @@ class AccomodationController extends Controller
                 $data["placeholder"] = $placeholder;
             }
 
-            dump($data);
-            return
+            
+            // $slider = Storage::put("cover_url", $data["cover_url"]);
+            // $data['url_img'] = $slider;
             // placeholderSlider
             $accomodation->update($data);
 

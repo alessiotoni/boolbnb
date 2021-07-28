@@ -71,10 +71,10 @@
         </div>
 
         {{-- slider --}}
-        <div class="form-group">
+        {{-- <div class="form-group">
           <label for="placeholder">Carica più immagini</label>
           <input type="file" name="placeholderSlider" id="placeholder" accept=".jpg, .png, .svg, .jpeg" class="form-control-file">
-        </div>
+        </div> --}}
         {{-- services  --}}
         <div class="form-group">
             @foreach($services as $service)
@@ -178,7 +178,7 @@
       <input
       id="newAccomodation"
         type="submit"
-        value="CREA"
+        value="MODIFICA"
         class="form-control btn btn-success text-capitalize"
       />
     </div>

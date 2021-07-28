@@ -36,6 +36,10 @@ Route::prefix('guest')
 
         Route::get('index', "AccomodationController@index")->name("index");
         Route::get('show/{id}', "AccomodationController@show")->name("show");
+
+
+
+
     });
 
 Route::prefix('logged')

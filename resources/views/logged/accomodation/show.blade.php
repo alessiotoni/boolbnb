@@ -8,6 +8,12 @@
 
 
     <img class="card-img" src="{{ $accomodation->placeholder ? asset('storage/' . $accomodation->placeholder) : asset('placeholder/house-placeholder.jpeg') }}" alt="..." class="img-thumbnail">
+
+    {{-- SLIDER --}}
+    <slider-images> </slider-images>
+    {{-- <img class="card-img" src="{{ $accomodation->placeholder ? asset('storage/' . $accomodation->placeholderSlider) : asset('placeholder/house-placeholder.jpeg') }}" alt="..." class="img-thumbnail"> --}}
+
+
     <h1>{{ $accomodation->title }}</h1>
     <h2>{{ $accomodation->description }}</h2>
     <h2>{{ $accomodation->city }} - {{ $accomodation->streat_name }} - {{ $accomodation->zip }}</h2>

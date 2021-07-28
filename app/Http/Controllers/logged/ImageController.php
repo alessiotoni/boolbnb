@@ -25,6 +25,9 @@ class ImageController extends Controller
             $image->fill($data);
             $image->accomodation_id = $id;
             $image->url_img = Storage::put('cover_url', $data['cover_url']);
+            // $image->url_img = Storage::put('url_img', $data['url_img']);
+            // Storage::put("placeholder", $data["placeholderSlider"]);
+
             $image->save();
         }
 
