@@ -7181,7 +7181,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n#map { \n    height: 50vh; \n    width: 50vw;\n} \n", ""]);
+exports.push([module.i, "\n#map { \r\n    height: 50vh; \r\n    width: 50vw;\n} \r\n", ""]);
 
 // exports
 

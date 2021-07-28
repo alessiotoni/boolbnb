@@ -70,11 +70,17 @@
             <input type="file" name="placeholder" id="placeholder" accept=".jpg, .png, .svg, .jpeg">
         </div>
 
+        {{-- slider --}}
+        <div class="form-group">
+          <label for="placeholder">Carica più immagini</label>
+          <input type="file" name="placeholderSlider" id="placeholder" accept=".jpg, .png, .svg, .jpeg" class="form-control-file">
+        </div>
         {{-- services  --}}
         <div class="form-group">
             @foreach($services as $service)
             <label for="{{ $service->title }}">
-                <input type="checkbox" name="services[]" value="{{ $service->id }}" id="{{ $service->title }}">
+                <input type="checkbox" name="services[]" value="{{ $service->id }}" id="{{ $service->title }}" 
+                {{$accomodation->services->contains($service) ? 'checked' : ''  }}>
                 {{ $service->title }}
             </label>
             @endforeach
@@ -89,6 +95,7 @@
         cols="30"
         rows="10"
         class="form-control"
+               value="{{ old('country', $accomodation->country) }}"
       />
     </div>
 
@@ -101,6 +108,7 @@
         cols="30"
         rows="10"
         class="form-control"
+               value="{{ old('city', $accomodation->city) }}"
       />
     </div>
 
@@ -113,6 +121,7 @@
         cols="30"
         rows="10"
         class="form-control"
+               value="{{ old('province', $accomodation->province) }}"
       />
     </div>
 
@@ -125,13 +134,14 @@
         cols="30"
         rows="10"
         class="form-control"
+         value="{{ old('zip', $accomodation->zip) }}"
       />
     </div>
 
     <div class="form-group">
       <label for="street_name">Tipo di via</label>
       <select id="type_street" name="type_street">
-        <option value="via" selected>Via</option>
+        <option value="via" selected >Via</option>
         <option value="piazza">Piazza</option>
         <option value="vicolo">Vicolo</option>
       </select>
@@ -146,18 +156,21 @@
         cols="30"
         rows="10"
         class="form-control"
+           value="{{ old('street_name', $accomodation->street_name) }}"
       />
     </div>
 
     <div class="form-group">
       <label for="building_number">Numero Civico</label>
       <input
+
         type="number"
         name="building_number"
         id="building_number"
         cols="30"
         rows="10"
         class="form-control"
+            value="{{ old('building_number', $accomodation->building_number) }}"
       />
     </div>
 

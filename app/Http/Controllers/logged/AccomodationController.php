@@ -156,6 +156,10 @@ class AccomodationController extends Controller
 
                 $data["placeholder"] = $placeholder;
             }
+
+            dump($data);
+            return
+            // placeholderSlider
             $accomodation->update($data);
 
             if (isset($data['services'])) {
