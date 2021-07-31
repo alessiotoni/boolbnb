@@ -2655,37 +2655,46 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "SliderImages",
-  props: {},
+  props: {
+    id: Number
+  },
   data: function data() {
     return {
       images: [],
       activeImg: 0,
-      index: ''
+      id: this.id
     };
   },
   methods: {
     getImages: function getImages() {
       var _this = this;
 
-      axios.get("http://127.0.0.1:8000/api/images/" + this.index).then(function (resp) {
+      axios.get("http://127.0.0.1:8000/api/images/" + this.id).then(function (resp) {
         _this.images = resp.data.results;
       });
+    },
+    change: function change(x) {
+      if (x < 0) {
+        this.activeImg--;
+
+        if (this.activeImg < 0) {
+          this.activeImg = this.images.length - 1;
+        }
+      }
+
+      if (x > 0) {
+        this.activeImg++;
+
+        if (this.activeImg > this.images.length - 1) {
+          this.activeImg = 0;
+        }
+      }
     }
+  },
+  mounted: function mounted() {
+    this.getImages();
   }
 });
 
@@ -40216,98 +40225,60 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("h1", [_vm._v("ciao")]),
-    _vm._v(" "),
-    _c(
-      "div",
-      {
-        staticClass: "sliderWrap d-flex",
-        attrs: { tabindex: "-1" },
-        on: {
-          keyup: [
-            function($event) {
-              if (
-                !$event.type.indexOf("key") &&
-                _vm._k($event.keyCode, "left", 37, $event.key, [
-                  "Left",
-                  "ArrowLeft"
-                ])
-              ) {
-                return null
-              }
-              if ("button" in $event && $event.button !== 0) {
-                return null
-              }
-              return _vm.changeImg(-1)
-            },
-            function($event) {
-              if (
-                !$event.type.indexOf("key") &&
-                _vm._k($event.keyCode, "right", 39, $event.key, [
-                  "Right",
-                  "ArrowRight"
-                ])
-              ) {
-                return null
-              }
-              if ("button" in $event && $event.button !== 2) {
-                return null
-              }
-              return _vm.changeImg(1)
+    _c("div", { staticClass: "row" }, [
+      _c(
+        "div",
+        {
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value: _vm.images.length > 1,
+              expression: "images.length > 1"
             }
-          ]
-        }
-      },
-      [
-        _c("div", { staticClass: "chevronLeft color-white" }, [
-          _c("i", {
-            staticClass: "fas fa-chevron-left",
-            on: {
-              click: function($event) {
-                return _vm.changeImg(-1)
-              }
+          ],
+          staticClass: "col-1",
+          on: {
+            click: function($event) {
+              return _vm.change(-1)
             }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "sliderImages" }, [
-          _c("img", {
-            staticClass: "imgBackground",
-            attrs: { src: _vm.imagesList[_vm.activeImg], alt: "" }
-          }),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "dots-container" },
-            _vm._l(_vm.imagesList, function(img, index) {
-              return _c("a", {
-                staticClass: "dot",
-                class: { active: _vm.activeImg === index },
-                attrs: { href: "#" },
-                on: {
-                  click: function($event) {
-                    $event.preventDefault()
-                    return _vm.onDotClick(index)
-                  }
-                }
-              })
-            }),
-            0
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "chevronRight color-white" }, [
-          _c("i", {
-            staticClass: "fas fa-chevron-right",
-            on: {
-              click: function($event) {
-                return _vm.changeImg(1)
-              }
+          }
+        },
+        [_vm._v("prima")]
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-10" }, [
+        _c("img", {
+          staticStyle: {
+            width: "100%",
+            height: "300px",
+            "object-fit": "cover"
+          },
+          attrs: { src: _vm.images[_vm.activeImg], alt: "" }
+        })
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value: _vm.images.length > 1,
+              expression: "images.length > 1"
             }
-          })
-        ])
-      ]
-    )
+          ],
+          staticClass: "col-1",
+          on: {
+            click: function($event) {
+              return _vm.change(1)
+            }
+          }
+        },
+        [_vm._v("dopo")]
+      )
+    ])
   ])
 }
 var staticRenderFns = []
@@ -53401,7 +53372,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-// removed by extract-text-webpack-plugin
+throw new Error("Module build failed (from ./node_modules/css-loader/index.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nSassError: Undefined variable.\n  ╷\n2 │     background-color: $foot-bg;\r\n  │                       ^^^^^^^^\n  ╵\n  resources\\sass\\_footer.scss 2:23  @import\n  C:\\Users\\giuli\\OneDrive\\Desktop\\boolbnb-1\\resources\\sass\\app.scss 11:9                        root stylesheet\n    at C:\\Users\\giuli\\OneDrive\\Desktop\\boolbnb-1\\node_modules\\webpack\\lib\\NormalModule.js:316:20\n    at C:\\Users\\giuli\\OneDrive\\Desktop\\boolbnb-1\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at C:\\Users\\giuli\\OneDrive\\Desktop\\boolbnb-1\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18\n    at context.callback (C:\\Users\\giuli\\OneDrive\\Desktop\\boolbnb-1\\node_modules\\loader-runner\\lib\\LoaderRunner.js:111:13)\n    at C:\\Users\\giuli\\OneDrive\\Desktop\\boolbnb-1\\node_modules\\sass-loader\\dist\\index.js:73:7\n    at Function.call$2 (C:\\Users\\giuli\\OneDrive\\Desktop\\boolbnb-1\\node_modules\\sass\\sass.dart.js:93650:16)\n    at _render_closure1.call$2 (C:\\Users\\giuli\\OneDrive\\Desktop\\boolbnb-1\\node_modules\\sass\\sass.dart.js:82010:12)\n    at _RootZone.runBinary$3$3 (C:\\Users\\giuli\\OneDrive\\Desktop\\boolbnb-1\\node_modules\\sass\\sass.dart.js:27550:18)\n    at _FutureListener.handleError$1 (C:\\Users\\giuli\\OneDrive\\Desktop\\boolbnb-1\\node_modules\\sass\\sass.dart.js:26099:19)\n    at _Future__propagateToListeners_handleError.call$0 (C:\\Users\\giuli\\OneDrive\\Desktop\\boolbnb-1\\node_modules\\sass\\sass.dart.js:26397:49)\n    at Object._Future__propagateToListeners (C:\\Users\\giuli\\OneDrive\\Desktop\\boolbnb-1\\node_modules\\sass\\sass.dart.js:4550:77)\n    at _Future._completeError$2 (C:\\Users\\giuli\\OneDrive\\Desktop\\boolbnb-1\\node_modules\\sass\\sass.dart.js:26229:9)\n    at _AsyncAwaitCompleter.completeError$2 (C:\\Users\\giuli\\OneDrive\\Desktop\\boolbnb-1\\node_modules\\sass\\sass.dart.js:25883:12)\n    at Object._asyncRethrow (C:\\Users\\giuli\\OneDrive\\Desktop\\boolbnb-1\\node_modules\\sass\\sass.dart.js:4349:17)\n    at C:\\Users\\giuli\\OneDrive\\Desktop\\boolbnb-1\\node_modules\\sass\\sass.dart.js:12872:20\n    at _wrapJsFunctionForAsync_closure.$protected (C:\\Users\\giuli\\OneDrive\\Desktop\\boolbnb-1\\node_modules\\sass\\sass.dart.js:4374:15)\n    at _wrapJsFunctionForAsync_closure.call$2 (C:\\Users\\giuli\\OneDrive\\Desktop\\boolbnb-1\\node_modules\\sass\\sass.dart.js:25904:12)\n    at _awaitOnObject_closure0.call$2 (C:\\Users\\giuli\\OneDrive\\Desktop\\boolbnb-1\\node_modules\\sass\\sass.dart.js:25896:25)\n    at _RootZone.runBinary$3$3 (C:\\Users\\giuli\\OneDrive\\Desktop\\boolbnb-1\\node_modules\\sass\\sass.dart.js:27550:18)\n    at _FutureListener.handleError$1 (C:\\Users\\giuli\\OneDrive\\Desktop\\boolbnb-1\\node_modules\\sass\\sass.dart.js:26099:19)\n    at _Future__propagateToListeners_handleError.call$0 (C:\\Users\\giuli\\OneDrive\\Desktop\\boolbnb-1\\node_modules\\sass\\sass.dart.js:26397:49)\n    at Object._Future__propagateToListeners (C:\\Users\\giuli\\OneDrive\\Desktop\\boolbnb-1\\node_modules\\sass\\sass.dart.js:4550:77)\n    at _Future._completeError$2 (C:\\Users\\giuli\\OneDrive\\Desktop\\boolbnb-1\\node_modules\\sass\\sass.dart.js:26229:9)\n    at _AsyncAwaitCompleter.completeError$2 (C:\\Users\\giuli\\OneDrive\\Desktop\\boolbnb-1\\node_modules\\sass\\sass.dart.js:25883:12)\n    at Object._asyncRethrow (C:\\Users\\giuli\\OneDrive\\Desktop\\boolbnb-1\\node_modules\\sass\\sass.dart.js:4349:17)\n    at C:\\Users\\giuli\\OneDrive\\Desktop\\boolbnb-1\\node_modules\\sass\\sass.dart.js:18187:20\n    at _wrapJsFunctionForAsync_closure.$protected (C:\\Users\\giuli\\OneDrive\\Desktop\\boolbnb-1\\node_modules\\sass\\sass.dart.js:4374:15)\n    at _wrapJsFunctionForAsync_closure.call$2 (C:\\Users\\giuli\\OneDrive\\Desktop\\boolbnb-1\\node_modules\\sass\\sass.dart.js:25904:12)\n    at _awaitOnObject_closure0.call$2 (C:\\Users\\giuli\\OneDrive\\Desktop\\boolbnb-1\\node_modules\\sass\\sass.dart.js:25896:25)\n    at _RootZone.runBinary$3$3 (C:\\Users\\giuli\\OneDrive\\Desktop\\boolbnb-1\\node_modules\\sass\\sass.dart.js:27550:18)\n    at _FutureListener.handleError$1 (C:\\Users\\giuli\\OneDrive\\Desktop\\boolbnb-1\\node_modules\\sass\\sass.dart.js:26099:19)\n    at _Future__propagateToListeners_handleError.call$0 (C:\\Users\\giuli\\OneDrive\\Desktop\\boolbnb-1\\node_modules\\sass\\sass.dart.js:26397:49)\n    at Object._Future__propagateToListeners (C:\\Users\\giuli\\OneDrive\\Desktop\\boolbnb-1\\node_modules\\sass\\sass.dart.js:4550:77)\n    at _Future._completeError$2 (C:\\Users\\giuli\\OneDrive\\Desktop\\boolbnb-1\\node_modules\\sass\\sass.dart.js:26229:9)\n    at _AsyncAwaitCompleter.completeError$2 (C:\\Users\\giuli\\OneDrive\\Desktop\\boolbnb-1\\node_modules\\sass\\sass.dart.js:25883:12)\n    at Object._asyncRethrow (C:\\Users\\giuli\\OneDrive\\Desktop\\boolbnb-1\\node_modules\\sass\\sass.dart.js:4349:17)");
 
 /***/ }),
 
