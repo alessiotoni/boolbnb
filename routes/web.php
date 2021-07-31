@@ -32,7 +32,7 @@ Route::prefix('guest')
     ->namespace('Guest')
     ->name("guest.")
     ->group(function () {
-        Route::get('map', "AccomodationController@map")->name("map");
+        Route::get('map', "AccomodationController@index")->name("map");
 
         Route::get('index', "AccomodationController@index")->name("index");
         Route::get('show/{id}', "AccomodationController@show")->name("show");
@@ -55,7 +55,10 @@ Route::prefix('logged')
         Route::post('create/images/{id}', "ImageController@store")->name("image.store");
         Route::get('sponsorship/create/{id}', "SponsorshipController@create")->name('sponsorship.create');
         Route::post('sponsorship/payment/{id}/store', "SponsorshipController@store")->name('sponsorship.store');
+        Route::get('accomodation/statviews/{id}', "AccomodationController@statviews")->name('statviews');
+        Route::get('accomodation/statmsg/{id}', "AccomodationController@statmsg")->name('statmsg');
     });
 
     //ROUTE PER PAGAMENTI BRAINTREE
     Route::get('/payment/make', 'PaymentsController@make')->name('payment.make');
+    // Route::get('/payment/make', 'PaymentsController@make')->name('payment.make');
