@@ -8,12 +8,27 @@ use App\Sponsorship;
 use App\User;
 use DateTime;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SponsorshipController extends Controller
 {
-    public function create($id) {
+    public function create($id)
+    {
+        $accomodation = Accomodation::findOrFail($id);
+        if (Auth::user()->id == $accomodation->user_id) {
 
-        return view('logged.sponsorship.create', ['id' => $id]);
+            $now = date("Y-m-d H:i:s");
+
+            $sponsor = Sponsorship::where('accomodation_id', $accomodation->id)->where('end_date', '>', $now)->orderBy("created_at", "DESC")->limit(1)->get();
+            if (count($sponsor) == 0) {
+
+                $accomodation->sponsorActive = false;
+            } else {
+                $accomodation->sponsorActive = true;
+            }
+            return view('logged.sponsorship.create', ['id' => $id, 'sponsorActive' => $accomodation->sponsorActive]);
+        }
+        abort(403, 'Unauthorized action.');
     }
 
     public function store(Request $request, $id)
@@ -29,7 +44,7 @@ class SponsorshipController extends Controller
         $verify = null;
         $sponsor = [];
 
-        if($data['option'] === 'bronze') {
+        if ($data['option'] === 'bronze') {
             $verify = true;
             $sponsor = [
                 'title' => 'bronze',
@@ -39,7 +54,7 @@ class SponsorshipController extends Controller
                 'accomodation_id' => $id,
             ];
         }
-        if($data['option'] === 'silver') {
+        if ($data['option'] === 'silver') {
             $verify = true;
             $sponsor = [
                 'title' => 'bronze',
@@ -49,7 +64,7 @@ class SponsorshipController extends Controller
                 'accomodation_id' => $id,
             ];
         }
-        if($data['option'] === 'gold') {
+        if ($data['option'] === 'gold') {
             $verify = true;
             $sponsor = [
                 'title' => 'gold',
@@ -60,15 +75,14 @@ class SponsorshipController extends Controller
             ];
         }
 
-        if($verify) {
+        if ($verify) {
 
             $new_sponsorship->fill($sponsor);
             $new_sponsorship->accomodation_id = $id;
-    
+
             $new_sponsorship->save();
         }
 
         return redirect()->route('logged.show', $id);
-
     }
 }

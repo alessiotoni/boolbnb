@@ -1,17 +1,47 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url('https://fonts.googleapis.com/css2?family=Maven');
 
 // Variables
 @import 'variables';
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+<<<<<<< HEAD
 @import "commons";
 @import "mixins";
 
 @import "nav";
 @import "accomodationLoggedShow";
 @import "accomodationGuestShow";
+=======
+
+// Commons
+@import 'commons';
+
+// Mixins
+@import 'mixins';
+
+// Nav bar
+@import 'nav';
+
+// Footer
+@import 'footer';
+
+// Home
+@import 'home';
+
+// Register
+@import 'register';
+
+// Dashboard
+@import 'dashboard';
+
+// Create-edit
+@import 'create-edit';
+
+// Form-image
+@import 'form-image';
+>>>>>>> 6b649fdf8b598d7a6cb7f5d8b3ebb43a30907cf7
 
 
 

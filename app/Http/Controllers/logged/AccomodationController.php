@@ -98,9 +98,13 @@ class AccomodationController extends Controller
     
             return view('logged.accomodation.show', ['accomodation' => $accomodation, 'messages' => $messages] );
         }
+<<<<<<< HEAD
 
         
         return view('guest.home');
+=======
+        abort(403, 'Unauthorized action.');
+>>>>>>> 6b649fdf8b598d7a6cb7f5d8b3ebb43a30907cf7
     }
 
     public function edit($id)
@@ -113,8 +117,7 @@ class AccomodationController extends Controller
 
             return view('logged.accomodation.edit', ['accomodation' => $accomodation, 'services' => $services]);
         }
-
-        return view('guest.home');
+        abort(403, 'Unauthorized action.');
     }
 
     public function update(Request $request, $id)
@@ -172,7 +175,7 @@ class AccomodationController extends Controller
             return redirect()->route('logged.show', $id);
         }
 
-        return view('guest.home');
+        abort(403, 'Unauthorized action.');
     }
 
     public function destroy($id)
@@ -197,13 +200,13 @@ class AccomodationController extends Controller
             return redirect()->route('logged.dashboard', $user_id);
         }
 
-        return view('guest.home');
+        abort(403, 'Unauthorized action.');
     }
 
     public function visibility(Request $request, $id)
     {
         $accomodation = Accomodation::findOrFail($id);
-        if (Auth::user()->id == $accomodation->user_id) {
+        if (isset(Auth::user()->id) && Auth::user()->id == $accomodation->user_id) {
 
             $data = $request->all();
 
@@ -211,15 +214,17 @@ class AccomodationController extends Controller
 
             return redirect()->back();
         }
-        return view('guest.home');
+        abort(403, 'Unauthorized action.');
     }
 
-    public function statviews($id) {
+    public function stat($id) {
 
-        return view('logged.accomodation.statviews', ['id' => $id]);
-    }
-    public function statmsg($id) {
+        $accomodation = Accomodation::findOrFail($id);
+        if (Auth::user()->id == $accomodation->user_id) {
 
-        return view('logged.accomodation.statmsg', ['id' => $id]);
+
+        return view('logged.accomodation.stat', ['id' => $id]);
+        }
+        abort(403, 'Unauthorized action.');
     }
 }

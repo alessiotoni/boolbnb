@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 * {
     margin:0;
     padding:0;
@@ -13,3 +14,25 @@ main.py-4 {
     padding-top: 79px!important;
 }
 
+=======
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1,h3{
+    font-weight: 600;
+}
+
+main.py-4{
+    padding-top: 60px !important;
+    padding-bottom: 0;
+}
+
+@media (min-width: 768px) {
+    main.py-4 {
+        padding-top: 79px !important;
+    }
+}
+>>>>>>> 6b649fdf8b598d7a6cb7f5d8b3ebb43a30907cf7

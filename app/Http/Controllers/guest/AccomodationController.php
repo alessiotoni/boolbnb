@@ -14,12 +14,13 @@ use Illuminate\Support\Facades\Auth;
 
 class AccomodationController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        $city = $request->only(["city"]);
         // $accomodations = Accomodation::orderBy('created_at', 'DESC')->where('visibility', true)->get();
         $services = Service::all();
 
-        return view('guest.accomodation.map', ['services' => $services]);
+        return view('guest.accomodation.map', ['services' => $services, 'city' => $city]);
     }
 
     public function show($id)
@@ -109,7 +110,18 @@ class AccomodationController extends Controller
         return view('guest.accomodation.show', ['accomodation' => $accomodation, 'images' => $images]);
     }
 
-    public function map() {
-        return view('guest.accomodation.map');
+    public function map(Request $request) {
+
+        $city = $request->only(["city"]);
+        $number_beds = $request->only(["number_beds"]);
+        $services = Service::all();
+        return view('guest.accomodation.map', ['city' => $city,'services' => $services, "number_beds" => $number_beds]);
+    }
+
+    public function prova(Request $request) {
+
+        $city =  $_GET(['city']);
+        
+        return view('guest.prova', ['city' => $city]);
     }
 }

@@ -39791,13 +39791,7 @@ var render = function() {
               ]),
               _vm._v(" "),
               _vm._l(24, function(i) {
-                return _c("option", { key: i, domProps: { value: i } }, [
-                  _vm._v(
-                    "\n          " +
-                      _vm._s(i < 10 ? "0" + i : i) +
-                      ":00\n        "
-                  )
-                ])
+                return _c("option", { key: i, domProps: { value: i } })
               })
             ],
             2
@@ -39816,13 +39810,7 @@ var render = function() {
               ]),
               _vm._v(" "),
               _vm._l(24, function(i) {
-                return _c("option", { key: i, domProps: { value: i } }, [
-                  _vm._v(
-                    "\n          " +
-                      _vm._s(i < 10 ? "0" + i : i) +
-                      ":00\n        "
-                  )
-                ])
+                return _c("option", { key: i, domProps: { value: i } })
               })
             ],
             2
@@ -52591,6 +52579,7 @@ var map = {
 	"./components/ExampleComponent.vue": "./resources/js/components/ExampleComponent.vue",
 	"./components/ModifyPosition.vue": "./resources/js/components/ModifyPosition.vue",
 	"./components/SliderImages.vue": "./resources/js/components/SliderImages.vue",
+	"./components/formInput/FormHome.vue": "./resources/js/components/formInput/FormHome.vue",
 	"./components/formInput/RangeInput.vue": "./resources/js/components/formInput/RangeInput.vue",
 	"./components/formInput/TextInput.vue": "./resources/js/components/formInput/TextInput.vue"
 };
@@ -53227,6 +53216,38 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/formInput/FormHome.vue":
+/*!********************************************************!*\
+  !*** ./resources/js/components/formInput/FormHome.vue ***!
+  \********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+var render, staticRenderFns
+var script = {}
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__["default"])(
+  script,
+  render,
+  staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+component.options.__file = "resources/js/components/formInput/FormHome.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/formInput/RangeInput.vue":
 /*!**********************************************************!*\
   !*** ./resources/js/components/formInput/RangeInput.vue ***!
@@ -53372,7 +53393,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-// removed by extract-text-webpack-plugin
+throw new Error("Module build failed (from ./node_modules/css-loader/index.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nSassError: expected \"{\".\n   ╷\n10 │ @import \"commons\";\r\n   │                  ^\n   ╵\n  C:\\Users\\giuli\\OneDrive\\Desktop\\boolbnb-1\\resources\\sass\\app.scss 10:18  root stylesheet\n    at C:\\Users\\giuli\\OneDrive\\Desktop\\boolbnb-1\\node_modules\\webpack\\lib\\NormalModule.js:316:20\n    at C:\\Users\\giuli\\OneDrive\\Desktop\\boolbnb-1\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at C:\\Users\\giuli\\OneDrive\\Desktop\\boolbnb-1\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18\n    at context.callback (C:\\Users\\giuli\\OneDrive\\Desktop\\boolbnb-1\\node_modules\\loader-runner\\lib\\LoaderRunner.js:111:13)\n    at C:\\Users\\giuli\\OneDrive\\Desktop\\boolbnb-1\\node_modules\\sass-loader\\dist\\index.js:73:7\n    at Function.call$2 (C:\\Users\\giuli\\OneDrive\\Desktop\\boolbnb-1\\node_modules\\sass\\sass.dart.js:93650:16)\n    at _render_closure1.call$2 (C:\\Users\\giuli\\OneDrive\\Desktop\\boolbnb-1\\node_modules\\sass\\sass.dart.js:82010:12)\n    at _RootZone.runBinary$3$3 (C:\\Users\\giuli\\OneDrive\\Desktop\\boolbnb-1\\node_modules\\sass\\sass.dart.js:27550:18)\n    at _FutureListener.handleError$1 (C:\\Users\\giuli\\OneDrive\\Desktop\\boolbnb-1\\node_modules\\sass\\sass.dart.js:26099:19)\n    at _Future__propagateToListeners_handleError.call$0 (C:\\Users\\giuli\\OneDrive\\Desktop\\boolbnb-1\\node_modules\\sass\\sass.dart.js:26397:49)\n    at Object._Future__propagateToListeners (C:\\Users\\giuli\\OneDrive\\Desktop\\boolbnb-1\\node_modules\\sass\\sass.dart.js:4550:77)\n    at _Future._completeError$2 (C:\\Users\\giuli\\OneDrive\\Desktop\\boolbnb-1\\node_modules\\sass\\sass.dart.js:26229:9)\n    at _AsyncAwaitCompleter.completeError$2 (C:\\Users\\giuli\\OneDrive\\Desktop\\boolbnb-1\\node_modules\\sass\\sass.dart.js:25883:12)\n    at Object._asyncRethrow (C:\\Users\\giuli\\OneDrive\\Desktop\\boolbnb-1\\node_modules\\sass\\sass.dart.js:4349:17)\n    at C:\\Users\\giuli\\OneDrive\\Desktop\\boolbnb-1\\node_modules\\sass\\sass.dart.js:12872:20\n    at _wrapJsFunctionForAsync_closure.$protected (C:\\Users\\giuli\\OneDrive\\Desktop\\boolbnb-1\\node_modules\\sass\\sass.dart.js:4374:15)\n    at _wrapJsFunctionForAsync_closure.call$2 (C:\\Users\\giuli\\OneDrive\\Desktop\\boolbnb-1\\node_modules\\sass\\sass.dart.js:25904:12)\n    at _awaitOnObject_closure0.call$2 (C:\\Users\\giuli\\OneDrive\\Desktop\\boolbnb-1\\node_modules\\sass\\sass.dart.js:25896:25)\n    at _RootZone.runBinary$3$3 (C:\\Users\\giuli\\OneDrive\\Desktop\\boolbnb-1\\node_modules\\sass\\sass.dart.js:27550:18)\n    at _FutureListener.handleError$1 (C:\\Users\\giuli\\OneDrive\\Desktop\\boolbnb-1\\node_modules\\sass\\sass.dart.js:26099:19)\n    at _Future__propagateToListeners_handleError.call$0 (C:\\Users\\giuli\\OneDrive\\Desktop\\boolbnb-1\\node_modules\\sass\\sass.dart.js:26397:49)\n    at Object._Future__propagateToListeners (C:\\Users\\giuli\\OneDrive\\Desktop\\boolbnb-1\\node_modules\\sass\\sass.dart.js:4550:77)\n    at _Future._completeError$2 (C:\\Users\\giuli\\OneDrive\\Desktop\\boolbnb-1\\node_modules\\sass\\sass.dart.js:26229:9)\n    at _Future__asyncCompleteError_closure.call$0 (C:\\Users\\giuli\\OneDrive\\Desktop\\boolbnb-1\\node_modules\\sass\\sass.dart.js:26325:18)\n    at Object._microtaskLoop (C:\\Users\\giuli\\OneDrive\\Desktop\\boolbnb-1\\node_modules\\sass\\sass.dart.js:4606:24)\n    at StaticClosure._startMicrotaskLoop (C:\\Users\\giuli\\OneDrive\\Desktop\\boolbnb-1\\node_modules\\sass\\sass.dart.js:4612:11)\n    at _AsyncRun__scheduleImmediateJsOverride_internalCallback.call$0 (C:\\Users\\giuli\\OneDrive\\Desktop\\boolbnb-1\\node_modules\\sass\\sass.dart.js:25795:21)\n    at invokeClosure (C:\\Users\\giuli\\OneDrive\\Desktop\\boolbnb-1\\node_modules\\sass\\sass.dart.js:1441:26)\n    at Immediate.<anonymous> (C:\\Users\\giuli\\OneDrive\\Desktop\\boolbnb-1\\node_modules\\sass\\sass.dart.js:1462:18)\n    at processImmediate (internal/timers.js:462:21)");
 
 /***/ }),
 

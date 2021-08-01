@@ -21,13 +21,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Arimo&family=Public+Sans:wght@100&display=swap" rel="stylesheet">
 
     <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap" rel="stylesheet">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 
     {{-- cdn tom tom --}}
     {{-- <link href='https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.6.0/maps/maps.css' rel='stylesheet' type='text/css'>
@@ -97,13 +97,23 @@
                 </div>
             </div>
         </nav>
+<<<<<<< HEAD
 
         {{-- main-container --}}
+=======
+
+
+>>>>>>> 6b649fdf8b598d7a6cb7f5d8b3ebb43a30907cf7
         <div class="main-container">
             <main class="py-4">
                 @yield('content')
             </main>
         </div>
+<<<<<<< HEAD
+=======
+
+        @include('layouts.footer')
+>>>>>>> 6b649fdf8b598d7a6cb7f5d8b3ebb43a30907cf7
     </div>
     <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/5.64.0/maps/maps-web.min.js"></script>
     <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/5.64.0/services/services-web.min.js"></script>

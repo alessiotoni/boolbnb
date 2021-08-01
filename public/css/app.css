@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css2?family=Maven);@charset "UTF-8";
 
 /*!
  * Bootstrap v4.6.0 (https://getbootstrap.com/)
@@ -10948,6 +10948,7 @@ a.text-dark:focus {
   box-sizing: border-box;
 }
 
+<<<<<<< HEAD
 .container {
   max-width: 1024px;
   width: 100%;
@@ -10956,6 +10957,22 @@ a.text-dark:focus {
 
 main.py-4 {
   padding-top: 79px !important;
+=======
+h1,
+h3 {
+  font-weight: 600;
+}
+
+main.py-4 {
+  padding-top: 60px !important;
+  padding-bottom: 0;
+}
+
+@media (min-width: 768px) {
+  main.py-4 {
+    padding-top: 79px !important;
+  }
+>>>>>>> 6b649fdf8b598d7a6cb7f5d8b3ebb43a30907cf7
 }
 
 .navbar {
@@ -10992,6 +11009,7 @@ main.py-4 {
   background-color: #e9ecef;
 }
 
+<<<<<<< HEAD
 * {
   font-family: "Arimo", sans-serif;
 }
@@ -11286,5 +11304,442 @@ h3 {
   vertical-align: middle;
   display: inline-block;
   margin: 20px 0;
+=======
+footer {
+  background-color: #f7f7f7;
+  padding: 30px;
+}
+
+.footer-block ul {
+  list-style: none;
+}
+
+.footer-block ul li {
+  margin-top: 15px;
+}
+
+.footer-block ul li a {
+  text-decoration: none;
+  color: #9198a4;
+}
+
+.footer-block ul li a:hover {
+  color: black;
+  transition: 0.1s;
+  margin-left: 1px;
+}
+
+.footer-block .copyright p,
+.footer-block .copyright i {
+  flex-direction: column;
+  color: #9198a4;
+  font-size: 14px;
+}
+
+.footer-block .footer-right strong {
+  margin-right: 20px;
+}
+
+.footer-block .footer-right .footer-icons {
+  display: inline-block;
+}
+
+.footer-block .footer-right .footer-icons i {
+  margin-right: 10px;
+}
+
+.footer-block .footer-right .footer-icons i:hover {
+  color: #71a8cd;
+}
+
+.home-container .hero {
+  padding: 130px 0 100px 0;
+  background-image: url(/images/jumbo-1.jpg?c32d04cd202465f93b272a0f62295cda);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: cover;
+}
+
+.home-container .hero .card {
+  border-radius: 10px;
+  width: 300px;
+}
+
+.home-container .hero .card .card-body {
+  padding: 30px;
+}
+
+.home-container .hero .card .card-body p {
+  font-size: 18px;
+  color: #9198a4;
+  margin-bottom: 40px;
+}
+
+.home-container .hero .card .card-body input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #9198a4;
+  margin-bottom: 20px;
+}
+
+.home-container .hero .card .card-body .search-btn {
+  width: 100%;
+  color: #ffff;
+  background-color: #71a8cd;
+  padding: 10px;
+}
+
+.home-container .hero .card .card-body .search-btn:hover {
+  background-color: #3490dc;
+  transition: 0.2s;
+}
+
+.home-container .city {
+  padding: 50px 0;
+}
+
+.home-container .city h3 {
+  margin-bottom: 40px;
+}
+
+.home-container .city .prova {
+  justify-content: space-between;
+  margin-bottom: 25px;
+  width: 240px;
+  height: 240px;
+  border-radius: 8px;
+  position: relative;
+  text-decoration: none;
+  top: 0;
+  transition: all 0.4s;
+}
+
+.home-container .city .prova:hover {
+  top: -20px;
+  cursor: pointer;
+}
+
+.home-container .city .prova:hover #capion {
+  text-decoration: none;
+}
+
+.home-container .city .prova #caption {
+  color: black;
+}
+
+.home-container .city .prova img {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.home-container .house-type {
+  padding: 50px 0;
+}
+
+.home-container .house-type p {
+  margin-bottom: 20px;
+}
+
+.home-container .house-type .type-content .type-img {
+  position: relative;
+}
+
+.home-container .house-type .type-content .type-img:hover .overlay {
+  opacity: 1;
+}
+
+.home-container .house-type .type-content .type-img img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.home-container .house-type .type-content .overlay {
+  height: 100%;
+  border-radius: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #80e2b4;
+  background: linear-gradient(0deg, rgba(128, 226, 180, 0.7402311266) 0%, rgba(66, 126, 213, 0.8) 100%);
+  color: #f1f1f1;
+  width: 100%;
+  transition: 0.5s ease;
+  opacity: 0;
+}
+
+.home-container .house-type .type-content .overlay i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 20px;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 50%;
+}
+
+.home-container .house-type .type-content .caption {
+  margin-bottom: 50px;
+}
+
+.home-container .servicies {
+  padding: 50px 0;
+}
+
+.home-container .servicies h3 {
+  margin-bottom: 40px;
+}
+
+.home-container .servicies .servicies-card {
+  border-radius: 10px;
+  font-size: 16px;
+  margin: 12px;
+  padding-top: 20px;
+  background-color: #f7f7f7;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.home-container .servicies .servicies-card i {
+  font-size: 20px;
+}
+
+.home-container .servicies .servicies-card:hover {
+  background-color: grey;
+  color: #ffff;
+  transition: 0.5s;
+}
+
+.home-container .register {
+  padding: 60px;
+}
+
+.home-container .register .reg-img {
+  padding: 190px 0;
+  background-image: url(/images/boolbnb-register.jpg?b6c0414cdce6f842cc200b7e217ebd0b);
+  border-radius: 10px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: cover;
+}
+
+.home-container .register .reg-img .reg-btn {
+  color: #ffff;
+  background-color: #71a8cd;
+  padding: 10px;
+}
+
+.home-container .register .reg-img .reg-btn:hover {
+  background-color: #3490dc;
+  transition: 0.2s;
+}
+
+@media (max-width: 575px) {
+  .hero > .container > .row {
+    justify-content: center;
+  }
+}
+
+.background-page {
+  width: 100%;
+  height: 100vh;
+  padding-top: 150px;
+  background-image: url(/images/jumbo-cover.jpg?7a988e7bb1718309c0b8902b65b6912e);
+  background-size: cover;
+  background-position: cover;
+  background-repeat: no-repeat;
+}
+
+.card {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.card .card-header {
+  color: #ffff;
+  background-color: #71a8cd;
+}
+
+.card .blu-btn {
+  color: #ffff;
+  background-color: #71a8cd;
+  padding: 10px;
+  padding: 5px 20px;
+}
+
+.card .blu-btn:hover {
+  background-color: #3490dc;
+  transition: 0.2s;
+}
+
+.card .form {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.card .form #birth_date {
+  width: 94%;
+}
+
+.card .form em {
+  font-size: 12px;
+  margin-left: 5px;
+  color: crimson;
+}
+
+.card .form i {
+  font-size: 10px;
+  margin-left: 10px;
+  color: crimson;
+}
+
+.dash-container {
+  padding-top: 30px;
+}
+
+.dash-container .dash-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #71a8cd;
+  color: #ffff;
+}
+
+.dash-container .dash-card .dash-title {
+  text-transform: capitalize;
+  margin: 0;
+}
+
+.dash-container .dash-card a {
+  color: #ffff;
+  font-size: 16px;
+}
+
+.dash-container .dash-body {
+  height: 70vh;
+  overflow: auto;
+}
+
+.dash-container .dash-body .accomodation-card {
+  padding: 15px 0;
+}
+
+.dash-container .dash-body .accomodation-card .card-body {
+  width: 80%;
+  margin: auto;
+}
+
+.dash-container .dash-body .accomodation-card .card-body .card-title {
+  text-transform: capitalize;
+}
+
+.dash-container .card-text {
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+}
+
+.dash-container .accomodation-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dash-container .accomodation-btn .btn {
+  color: #ffff;
+  background-color: #71a8cd;
+  padding: 10px;
+}
+
+.dash-container .accomodation-btn .btn:hover {
+  background-color: #3490dc;
+  transition: 0.2s;
+}
+
+.dash-container .prova {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.dash-container .prova p {
+  flex-grow: 1;
+  overflow: auto;
+  max-height: 210px;
+  text-overflow: ellipsis;
+  margin: 0;
+}
+
+.create-container {
+  margin-top: 50px;
+}
+
+.create-container em {
+  margin-left: 5px;
+  color: crimson;
+}
+
+.create-container i {
+  font-size: 10px;
+  margin-left: 10px;
+  color: crimson;
+}
+
+.create-container .title {
+  width: 40%;
+}
+
+.create-container .services {
+  margin-top: 20px;
+}
+
+.create-container .form-btn {
+  width: 130px;
+  margin: auto;
+}
+
+.create-container label {
+  text-transform: capitalize;
+}
+
+.form-container {
+  width: 100%;
+  height: 100vh;
+  padding-top: 150px;
+  background-image: url(/images/jumbo-cover.jpg?7a988e7bb1718309c0b8902b65b6912e);
+  background-size: cover;
+  background-position: cover;
+  background-repeat: no-repeat;
+}
+
+.form-container .form-img .card {
+  width: 60%;
+  margin: auto;
+}
+
+.form-container .form-img .card-body {
+  width: 80%;
+  margin: auto;
+}
+
+.form-container .form-img .img-btn {
+  color: #ffff;
+  background-color: #71a8cd;
+  padding: 10px;
+  padding: 5px 20px;
+}
+
+.form-container .form-img .img-btn:hover {
+  background-color: #3490dc;
+  transition: 0.2s;
+>>>>>>> 6b649fdf8b598d7a6cb7f5d8b3ebb43a30907cf7
 }
 
