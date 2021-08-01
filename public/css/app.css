@@ -11386,3 +11386,262 @@ footer {
   }
 }
 
+* {
+  font-family: "Arimo", sans-serif;
+}
+
+.py-9 {
+  padding-top: 30px;
+}
+
+.slider {
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.my_chev {
+  background-color: #d6d6d6;
+  width: 57px;
+  height: 52px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 7px;
+  min-width: 57px;
+}
+
+.my_chev:hover {
+  background-color: gray;
+}
+
+.my_slider {
+  height: 400px;
+}
+
+.my_slider img {
+  width: 100%;
+  height: 100%;
+  border-radius: 7px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+@media all and (max-width: 768px) {
+  .my_slider {
+    height: 250px;
+  }
+
+  .chevronRight,
+  .chevronLeft {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    left: 28px;
+    width: 57px;
+    z-index: 10;
+  }
+
+  .chevronRight {
+    left: auto;
+    right: 28px;
+  }
+
+  .my_chev {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+}
+
+.color-white {
+  color: #fff;
+}
+
+.chevronLeft,
+.chevronRight {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.wrap {
+  padding-top: 30px;
+}
+
+.wrap .title {
+  color: black;
+}
+
+.wrap .city {
+  text-decoration: underline;
+  color: gray;
+}
+
+.wrap .description {
+  color: #222222 !important;
+  font-family: "Public Sans", sans-serif;
+  font-weight: 400 !important;
+  font-size: 16px;
+}
+
+.wrap .line {
+  width: 100%;
+  border-bottom: 1px solid #d6d6d6;
+  background-color: #d6d6d6;
+  vertical-align: middle;
+  display: inline-block;
+  margin: 20px 0;
+}
+
+.my-panel {
+  color: black;
+  position: relative;
+  border: 1px solid #71a8cd;
+  border-radius: 14px;
+  padding: 32px 24px;
+  margin: 12px;
+  text-decoration: none;
+  z-index: 0;
+  overflow: hidden;
+  font-weight: bold;
+  background-color: #fff;
+}
+
+.my-panel:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: -16px;
+  right: -16px;
+  background: #71a8cd;
+  height: 32px;
+  width: 32px;
+  border-radius: 32px;
+  transform: scale(2);
+  transform-origin: 50% 50%;
+  transition: transform 0.15s ease-out;
+}
+
+.my-panel:hover:before {
+  transform: scale(2.15);
+}
+
+.my-panel label:hover {
+  font-weight: bold;
+}
+
+.btn {
+  color: #ffff;
+  background-color: #71a8cd;
+  padding: 10px;
+}
+
+.btn:hover {
+  background-color: #3490dc;
+  transition: 0.2s;
+}
+
+.padding-left {
+  padding-left: 20px;
+  color: #222222 !important;
+  font-family: "Public Sans", sans-serif;
+  font-weight: 400 !important;
+  font-size: 16px;
+}
+
+.my_home {
+  font-size: 20px;
+}
+
+.text-font {
+  margin-bottom: 20px;
+}
+
+.card {
+  text-align: center;
+  background-color: #fff;
+  border-radius: 4px;
+  padding: 32px 24px;
+  border: 1px solid #71a8cd;
+  color: #222222;
+}
+
+.card:hover {
+  border: 1px solid #71a8cd;
+  z-index: 500;
+}
+
+.card p {
+  padding: 20px;
+  font-size: medium;
+  color: #222222;
+}
+
+.card .my-beds {
+  font-size: 25px;
+}
+
+.card:hover p {
+  color: #71a8cd;
+  font-size: medium;
+}
+
+.actions {
+  margin: 20px 0;
+}
+
+.my-edit {
+  color: #71a8cd;
+}
+
+.my-delete {
+  color: #fff;
+}
+
+input {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  padding: 4px;
+}
+
+input:hover {
+  background-color: #3490dc;
+}
+
+.my_actions {
+  width: 57px;
+  height: 57px;
+  background-color: #71a8cd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  margin: 5px 0;
+}
+
+.my_actions a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.my_actions a i {
+  color: white;
+  display: flex;
+  align-items: center;
+}
+
+.my_actions:hover {
+  background-color: #3490dc;
+}
+
+h3 {
+  margin: 40px 0;
+}
+
+.my_badge {
+  font-size: small;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+

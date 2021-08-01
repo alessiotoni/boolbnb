@@ -1,0 +1,237 @@
+* {
+    font-family: $font-show;  
+}
+
+.py-9 {
+    padding-top: 30px;
+}
+.slider {
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.my_chev {
+    background-color: $grey;
+    width: 57px;
+    height: 52px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 7px;
+    min-width: 57px;
+    &:hover {
+        background-color: gray;
+    }
+}
+.my_slider {
+    height: 400px;
+    img {
+        width: 100%; 
+        height: 100%; 
+        border-radius: 7px;
+        object-fit: cover;
+    }
+}
+
+
+@media all and (max-width: 768px) {
+    .my_slider {
+        height: 250px;
+
+    }
+    .chevronRight, .chevronLeft {
+    
+        position: absolute;
+        top: 50%;
+        transform: translate(0, -50%);
+        left: 28px;
+        width: 57px;
+        z-index: 10;
+        // height: auto;
+    
+        }
+    
+        .chevronRight {
+            left: auto;
+            right: 28px;
+        }
+    .my_chev {
+        background-color: rgba(0, 0, 0, 0.5);
+
+    }
+    
+    
+}
+
+.color-white {
+    color: #fff;
+}
+.chevronLeft, .chevronRight{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+.wrap {
+    padding-top: 30px;
+
+    .title { 
+        color: black;
+    }
+    .city {
+        text-decoration: underline;
+        color: gray;
+    }
+    .description {
+        @include description;
+    }
+    .line {
+        width: 100%;
+        border-bottom: 1px solid $grey;
+        background-color: $grey;
+        vertical-align: middle;
+        display: inline-block;
+        margin: 20px 0;
+    }
+}
+
+
+.my-panel {
+    color: black;
+    position: relative;
+   
+    // bottom: 20px;
+    border: 1px solid $primary;
+    border-radius: 14px;
+    padding: 32px 24px;
+    margin: 12px;
+    text-decoration: none;
+    z-index: 0;
+    overflow: hidden;
+    font-weight: bold;
+    background-color: #fff;
+    
+    &:before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        top: -16px;
+        right: -16px;
+        background: $primary;
+        height: 32px;
+        width: 32px;
+        border-radius: 32px;
+        transform: scale(2);
+        transform-origin: 50% 50%;
+        transition: transform 0.15s ease-out;
+    }
+    
+    &:hover:before {
+        transform: scale(2.15);
+    }
+    label {
+        &:hover {
+            font-weight: bold;
+        }
+    }
+    
+}
+
+.btn {
+    @include blu-btn;
+}
+.padding-left {
+    padding-left: $spacing;
+    @include description;
+}
+.my_home {
+    font-size: $spacing;
+}
+
+.text-font {
+    margin-bottom: $spacing;
+}
+.card {
+   
+    text-align: center;
+    background-color: #fff;
+    border-radius: 4px;
+    padding: 32px 24px;
+    border: 1px solid $primary;
+    color: #222222;
+    
+    &:hover {
+      border: 1px solid $primary;
+      z-index: 500;
+    }
+    p {
+        padding: $spacing;
+        font-size: medium;
+        color: #222222;
+    }
+    .my-beds {
+        font-size: $spacing + 5px;
+    }
+}
+  
+.card:hover {
+    p{
+        color: $primary;
+        font-size: medium;
+    }
+}
+.actions {
+    margin: $spacing 0;
+}
+.my-edit {
+    color: $primary;
+
+}
+.my-delete {
+    color: #fff;
+}
+
+input {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    padding: 4px;
+    &:hover {
+        background-color: $blue;
+       
+    }
+}
+.my_actions {
+    width: 57px;
+    height: 57px;
+    background-color: $primary;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    margin: 5px 0;
+    a {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        i {
+            color: white;
+            display: flex;
+            align-items: center;
+        }
+       
+    }
+    &:hover {
+        background-color: $blue;
+    }
+
+}
+
+h3 {
+    margin: $spacing * 2 0;
+}
+.my_badge {
+    font-size: small;
+    text-transform: uppercase;
+    margin-bottom: $spacing / 2;
+}

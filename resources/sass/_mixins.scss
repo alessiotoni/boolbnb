@@ -52,3 +52,10 @@
     background-position: cover;
     background-repeat: no-repeat;
 }
+
+@mixin description {
+    color: #222222 !important;
+    font-family: $font-descript;
+    font-weight: 400 !important;
+    font-size: $font-size;
+}
