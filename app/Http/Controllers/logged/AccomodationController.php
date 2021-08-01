@@ -88,13 +88,18 @@ class AccomodationController extends Controller
 
     public function show($id)
     {
-        $accomodation = Accomodation::findOrFail($id);
+       
+        $accomodation = Accomodation::find($id);
         if (Auth::user()->id == $accomodation->user_id) {
 
-            $messages = Message::where('accomodation_id', $id)->get();
 
-            return view('logged.accomodation.show', ['accomodation' => $accomodation, 'messages' => $messages]);
+            $messages = Message::where('accomodation_id', $id)->get();
+        
+    
+            return view('logged.accomodation.show', ['accomodation' => $accomodation, 'messages' => $messages] );
         }
+
+        
         return view('guest.home');
     }
 

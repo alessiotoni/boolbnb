@@ -56,14 +56,15 @@ class AccomodationController extends Controller
         //     ]);
         // }
 
-        $query  = explode('&', $_SERVER['QUERY_STRING']);
+        // $query  = explode('&', $_SERVER['QUERY_STRING']);
         $accomodations = Accomodation::select('accomodations.*')->with('services')->where('visibility', 1);
-        $params = [];
+        // $params = [];
 
-        foreach ($query as $param) {
-            list($name, $value) = explode('=', $param, 2);
-            $params[urldecode($name)][] = urldecode($value);
-        }
+        // foreach ($query as $param) {
+        //     list($name, $value) = explode('=', $param, 2);
+        //     $params[urldecode($name)][] = urldecode($value);
+        // }
+        
 
         foreach ($filters as $filter => $value) {
             if ($filter === 'number_beds') {
@@ -104,7 +105,7 @@ class AccomodationController extends Controller
         }
         return response()->json([
             'success' => true,
-            'params' => $params,
+            'params' => $_GET,
             'results' => $filtered_accomodations,
         ]);
     }

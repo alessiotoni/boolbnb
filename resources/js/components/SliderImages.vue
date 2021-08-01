@@ -1,18 +1,22 @@
 <template>
-<div>
-        <div class="row">
-            <div v-show="images.length > 1" class="col-1" @click="change(-1)">prima</div>
-            <div class="col-10">
-                <img :src="images[activeImg]" alt="" style="width: 100%; height: 300px; object-fit: cover">
+    <div class="py-9">
+        
+        <div class="d-flex slider">
+
+            <div v-show="images.length > 1" class="col-sm-1 chevronLeft color-white " @click="change(-1)">
+                <i class="fas fa-chevron-left my_chev"></i>
             </div>
-            <div v-show="images.length > 1" class="col-1" @click="change(1)">dopo</div>
+
+            <div class="col-xs-12 col-sm-12 col-md-10 my_slider">
+                <img :src="images[activeImg]" alt="slider">
+            </div>
+
+            <div v-show="images.length > 1" class="col-sm-1 chevronRight color-white" @click="change(1)">
+                <i class="fas fa-chevron-right my_chev" ></i>
+            </div>
+        
         </div>
-        <!-- <div v-else>
-            <div>
-                <img :src="asset('storage/placeholder/house-placeholder.jpeg')" alt="" style="width: 100%; height: 300px; object-fit: cover">
-            </div>
-        </div> -->
-</div>    
+    </div>    
 </template>
 
 <script>
@@ -26,6 +30,7 @@ export default {
             images: [],
             activeImg: 0,
             id: this.id,
+            filteredAccomodations: [],
         }
     },
     methods: {
@@ -57,3 +62,8 @@ export default {
        
 }
 </script>
+
+<style lang="scss" scoped>
+
+
+</style>
