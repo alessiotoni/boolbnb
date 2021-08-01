@@ -11251,3 +11251,40 @@ h3 {
   margin-bottom: 10px;
 }
 
+* {
+  font-family: "Arimo", sans-serif;
+}
+
+.title {
+  margin: 20px 0;
+}
+
+.wrap {
+  padding-top: 60px;
+}
+
+.wrap .title {
+  color: black;
+}
+
+.wrap .city {
+  text-decoration: underline;
+  color: gray;
+}
+
+.wrap .description {
+  color: #222222 !important;
+  font-family: "Public Sans", sans-serif;
+  font-weight: 400 !important;
+  font-size: 16px;
+}
+
+.wrap .line {
+  width: 100%;
+  border-bottom: 1px solid #d6d6d6;
+  background-color: #d6d6d6;
+  vertical-align: middle;
+  display: inline-block;
+  margin: 20px 0;
+}
+

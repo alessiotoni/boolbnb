@@ -1,0 +1,29 @@
+* {
+    font-family: $font-show;  
+}
+.title {
+    margin: $spacing 0;
+}
+
+.wrap {
+    padding-top: $spacing * 3;
+
+    .title { 
+        color: black;
+    }
+    .city {
+        text-decoration: underline;
+        color: gray;
+    }
+    .description {
+        @include description;
+    }
+    .line {
+        width: 100%;
+        border-bottom: 1px solid $grey;
+        background-color: $grey;
+        vertical-align: middle;
+        display: inline-block;
+        margin: 20px 0;
+    }
+}
