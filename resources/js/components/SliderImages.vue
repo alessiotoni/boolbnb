@@ -14,6 +14,8 @@
             <div v-show="images.length > 1" class="col-sm-1 chevronRight color-white" @click="change(1)">
                 <i class="fas fa-chevron-right my_chev" ></i>
             </div>
+
+            
         
         </div>
     </div>    

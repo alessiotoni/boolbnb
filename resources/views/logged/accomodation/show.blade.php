@@ -3,7 +3,10 @@
 
 @section('content')
 <div class="container ">
-    <slider-images :id='{{$accomodation->id}}'></slider-images>
+    <slider-images :id='{{$accomodation->id}}'>
+           
+    </slider-images>
+   
 
     <div class="row justify-content-center align-items-center">
         <div class="wrap col-md-9">
@@ -17,61 +20,71 @@
             <div class="line"></div>
 
         </div>
-
-
-                {{-- <div>
-                    <label for="tue">Visibile
-                        <input name="visibility" type="radio" value="1" id="true" {{ $accomodation->visibility == true ? 'checked' : "" }}>
-                    </label>
-                
-                </div>
-                <div>
-                    <label for="false">Non visibile
-                        <input name="visibility" type="radio" value="0" id="false" {{ $accomodation->visibility == false ? 'checked' : "" }}>
-                    </label>
-                
-                </div> --}}
+        {{-- <div>
+            <label for="tue">Visibile
+                <input name="visibility" type="radio" value="1" id="true" {{ $accomodation->visibility == true ? 'checked' : "" }}>
+            </label>
+        </div>
+        <div>
+            <label for="false">Non visibile
+                <input name="visibility" type="radio" value="0" id="false" {{ $accomodation->visibility == false ? 'checked' : "" }}>
+            </label>
+        </div> --}}
         
-        <div class=" col-sm-4 col-md-3">
+        <div class="">
+        {{-- col-sm-5 col-md-3 --}}
             <div class="my-panel panel-default">
                 
-                <div>
-                <i class="far fa-edit my-edit"></i>
-                {{-- card-link btn btn-primary --}}
-                <a href="{{ route('logged.edit', $accomodation->id) }}">Modifica</a>
-
-            </div>
-            
-
-            <form class="delete_form " action="{{ route('logged.destroy', $accomodation->id) }}" method="post">
-                @csrf
-                @method('DELETE')
+                <div class="my_actions">
+                   
+                    {{-- card-link btn btn-primary --}}
+                    <a href="{{ route('logged.edit', $accomodation->id) }}"> <i class="far fa-edit my-edit"></i></a>
                 
-                <button class="log btn btn-primary card-link" type="submit">
-                    <i class="far fa-trash-alt my-delete"></i>
-                </button>
-            </form>
+                </div>
 
-            <a href="{{ route('logged.statviews', $accomodation->id) }}">Statistiche</a>
-            <p>Visualizzazioni: {{ count($accomodation->views) }}</p>
-            
-            @if(count($accomodation->messages) > 0)
+                <form class="delete_form  " action="{{ route('logged.destroy', $accomodation->id) }}" method="post">
+                    @csrf
+                    @method('DELETE')
+                    
+                    <button class="log btn btn-primary card-link my_actions" type="submit">
+                        <i class="far fa-trash-alt my-delete"></i>
+                    </button>
+                </form>
+
+                <div class="my_actions">
+                    <a href="{{ route('logged.statviews', $accomodation->id) }}">
+                        <i class="far fa-chart-bar"></i>
+                    </a>
+                </div>
+
                 
-                <a href="{{ route('message.index', $accomodation->id) }}" class="btn btn-primary">
-                <i class="fas fa-envelope"></i>
-                </a>
-                <br>
 
-            
-            @else
-            
-            <a href="#">Non hai nessun messaggio
-            
-                <i class="fas fa-envelope"></i>
-                <i class="fas fa-times"></i>
-            </a>
+    
+                @if(count($accomodation->messages) > 0)
+                    <div class="my_actions">
+                        <a href="{{ route('message.index', $accomodation->id) }}" class="btn btn-primary">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+ 
+                @else
+                <div class="my_actions">
+                    <a href="#">
+                        <i class="fas fa-comment-slash"></i>
+                    </a>
+                
+                </div>
 
-            @endif
+                @endif
+
+                <div class="my_actions">
+                    <a href="#">
+                        <i class="fas fa-eye ">{{ count($accomodation->views) }}</i> 
+                        {{-- <p>Hai {{ count($accomodation->views) }} visualizzazioni </p>  --}}
+                    </a>
+                </div>
+
+                
 
             </div>
             {{-- @foreach($messages as $message)
@@ -79,6 +92,8 @@
             <a href="{{ route('message.show', $message->id) }}" class="card-link btn btn-primary">Visualizza messaggio</a><br>
 
             @endforeach --}}
+
+
         </div>
     </div>
 
@@ -113,26 +128,21 @@
 
 
     <div class="row">
-        <div class="col-sm-4 col-md-3 actions" >
-            {{-- <h3>Azioni:</h3> --}}
-
-            
-
+        <div class="col-sm-12 " >
+            <h3>Cosa troverai</h3>
+            <div class="row">
+                @foreach($accomodation->services as $service)
+                    <div class="col-sm-6 col-md-4 col-lg-3">
+                        <h4 class="my_badge">   
+                            <i class="far fa-star"></i>
+                        {{ $service->title }}</h4>
+                    
+                    </div>
+                    
+                   
+                @endforeach
+            </div>
         </div>
-    
     </div>
-    
-    
-
-
-    <div>
-
-        @foreach($accomodation->services as $service)
-                <span class="badge bg-primary my-badge">{{ $service->title }}</span>
-        @endforeach
-    </div>
-    
-
-
 </div>
 @endsection
