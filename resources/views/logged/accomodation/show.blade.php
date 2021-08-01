@@ -11,6 +11,9 @@
     <h2>{{ $accomodation->description }}</h2>
     <h2>{{ $accomodation->city }} - {{ $accomodation->streat_name }} - {{ $accomodation->zip }}</h2>
     <a href="{{ route('logged.edit', $accomodation->id) }}" class="card-link btn btn-primary">Modifica</a><br>
+
+    <a href="{{ route('logged.image.create', $accomodation->id) }}" class="card-link btn btn-primary">aggiungi img</a><br>
+    
     <form action="{{ route('logged.visibility', $accomodation->id) }}" method="post">
         @csrf
         @method('PATCH')

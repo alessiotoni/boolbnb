@@ -1,0 +1,44 @@
+.dash-container {
+    margin-top: 40px;
+
+
+    .dash-card {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 20px;
+        background-color: $primary;
+        color: $body-bg;
+
+        a {
+            color: $body-bg;
+            font-size: 16px;
+        }
+    }
+
+    .dash-body {
+        height: 70vh;
+        overflow: auto;
+
+        .accomodation-card {
+            padding: 15px 0;
+
+            .card-body {
+                width: 80%;
+                margin: auto;
+            }
+        }
+
+    }
+
+    .card-text {
+        display: flex;
+        flex-direction: column;
+        align-content: space-between;
+    }
+
+    .accomodation-btn{
+        display:flex;
+        flex-direction: row;
+    }
+}
