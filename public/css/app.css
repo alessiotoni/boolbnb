@@ -11261,16 +11261,22 @@ footer {
 }
 
 .dash-container {
-  margin-top: 40px;
+  padding-top: 30px;
 }
 
 .dash-container .dash-card {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   padding: 20px;
   background-color: #71a8cd;
   color: #ffff;
+}
+
+.dash-container .dash-card .dash-title {
+  text-transform: capitalize;
+  margin: 0;
 }
 
 .dash-container .dash-card a {
@@ -11292,15 +11298,41 @@ footer {
   margin: auto;
 }
 
-.dash-container .card-text {
-  display: flex;
-  flex-direction: column;
-  align-content: space-between;
+.dash-container .dash-body .accomodation-card .card-body .card-title {
+  text-transform: capitalize;
 }
 
 .dash-container .accomodation-btn {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dash-container .accomodation-btn .btn {
+  color: #ffff;
+  background-color: #71a8cd;
+  padding: 10px;
+}
+
+.dash-container .accomodation-btn .btn:hover {
+  background-color: #3490dc;
+  transition: 0.2s;
+}
+
+.dash-container .card-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.dash-container .card-text p {
+  flex-grow: 1;
+  overflow: auto;
+  max-height: 210px;
+  text-overflow: ellipsis;
+  margin: 0;
 }
 
 .create-container {
@@ -11318,20 +11350,27 @@ footer {
   color: crimson;
 }
 
-.create-container .title {
-  width: 40%;
-}
-
-.create-container .form-group {
-  margin: 40px 0;
-}
-
 .create-container .services {
   margin-top: 20px;
 }
 
 .create-container .form-btn {
-  width: 20%;
+  width: 130px;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.create-container label {
+  text-transform: capitalize;
+}
+
+.create-container input,
+.create-container select {
+  margin-bottom: 20px;
+}
+
+.create-container .load-img {
+  margin-top: 5px;
 }
 
 .form-container {
