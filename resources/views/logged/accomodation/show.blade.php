@@ -8,7 +8,7 @@
     </section>
 
     <div class="row row-my-panel">
-        <div class=" col-md-8 my-panel">
+        <div class=" my-panel">
             {{-- image --}}
             <div class="my_actions">
                 <a class="panel-item" href="{{ route('logged.image.create', $accomodation->id) }}">
