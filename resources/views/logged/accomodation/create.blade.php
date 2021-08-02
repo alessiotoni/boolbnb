@@ -4,7 +4,7 @@
 @include('layouts.components.error')
 <div class="container create-container">
 
-    <p> <i class="fa fa-asterisk"></i><span><em> <strong>Tutti i campi sono obbligatori</strong></em></p>
+    <p> <i class="fas fa-asterisk"></i><span><em> <strong>Tutti i campi sono obbligatori</strong></em></p>
 
     <form action="{{ route("logged.store") }}" method="post" enctype="multipart/form-data">
 

@@ -57,10 +57,10 @@
 
 @mixin background-page {
     width: 100%;
-    height: 100vh;
-    padding-top: 150px;
-    background-image: url(imgs/jumbo-cover.jpg);
+    height: 90vh;
+    padding-top: 110px;
     background-size: cover;
     background-position: cover;
     background-repeat: no-repeat;
 }
+

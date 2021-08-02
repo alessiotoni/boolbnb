@@ -52,9 +52,6 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto right-nav-item  ">
 
-                        <li class="nav-item">
-                            <a class="nav-link" href=""> <strong>Diventa Host</strong></a>
-                        </li>
                         <!-- Authentication Links -->
                         @guest
                         @if (Route::has('register'))
@@ -64,7 +61,7 @@
                         @endif
 
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Accedi')  }} <i class="fa fa-user-circle-o"></i> </a>
+                            <a class="nav-link" href="{{ route('login') }}">{{ __('Accedi')  }} <i class="far fa-user-circle"></i> </a>
                         </li>
 
                         @else
@@ -98,12 +95,11 @@
             </main>
         </div>
 
-        @include('layouts.footer')
+    @include('layouts.footer')
     </div>
     <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/5.64.0/maps/maps-web.min.js"></script>
     <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/5.64.0/services/services-web.min.js"></script>
     <script src='{{ asset('js/app.js') }}'></script>
-
 
 </body>
 </html>

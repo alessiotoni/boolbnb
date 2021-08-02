@@ -1,9 +1,16 @@
 @extends('logged.sponsorship.layouts')
+@extends('layouts.app')
+
 
 @section('content')
 
-<div class="container">
+<div class="stat-container">
 
+<div class="container">
+<div class="card-header">
+<h3>Le mie statistiche</h3>
+</div>
+<div class="card stat-card">
 <div class="row">
     <div class="col-6">
         <canvas id="myViews"></canvas>
@@ -12,7 +19,8 @@
     <div class="col-6">
         <canvas id="myMessages"></canvas>
     </div>
-
+</div>
+</div>
 </div>
     
 </div>

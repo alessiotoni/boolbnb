@@ -1,0 +1,8 @@
+.stat-container{
+    background-image: url(imgs/back-img-4.jpg);
+    @include background-page;
+
+    .stat-card{
+        padding: 40px;
+    }
+}

@@ -11263,10 +11263,10 @@ footer {
 }
 
 .background-page {
-  width: 100%;
-  height: 100vh;
-  padding-top: 150px;
   background-image: url(/images/jumbo-cover.jpg?7a988e7bb1718309c0b8902b65b6912e);
+  width: 100%;
+  height: 90vh;
+  padding-top: 110px;
   background-size: cover;
   background-position: cover;
   background-repeat: no-repeat;
@@ -11444,10 +11444,10 @@ footer {
 }
 
 .form-container {
+  background-image: url(/images/back-img-2.jpg?ff76dac94548015a6a96e3822ae7e6af);
   width: 100%;
-  height: 100vh;
-  padding-top: 150px;
-  background-image: url(/images/jumbo-cover.jpg?7a988e7bb1718309c0b8902b65b6912e);
+  height: 90vh;
+  padding-top: 110px;
   background-size: cover;
   background-position: cover;
   background-repeat: no-repeat;
@@ -11822,5 +11822,19 @@ a {
 .ui-icon,
 .ui-widget-content .ui-icon {
   margin-right: 15px;
+}
+
+.stat-container {
+  background-image: url(/images/back-img-4.jpg?f739c52628eeafb4b8995376d3720ad5);
+  width: 100%;
+  height: 90vh;
+  padding-top: 110px;
+  background-size: cover;
+  background-position: cover;
+  background-repeat: no-repeat;
+}
+
+.stat-container .stat-card {
+  padding: 40px;
 }
 
