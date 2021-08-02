@@ -304,6 +304,7 @@ class AccomodationSeeder extends Seeder
             'count_services' => 0,
          ],
          
+         
       ];
       foreach ($accomodations as $accomodation) {
          $new_accomodation = new Accomodation();
