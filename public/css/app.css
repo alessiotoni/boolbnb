@@ -11696,6 +11696,31 @@ i.fas.fa-circle {
   margin-right: 10px;
 }
 
+.wrap .line {
+  width: 100%;
+  border-bottom: 1px solid grey;
+  background-color: grey;
+  vertical-align: middle;
+  display: inline-block;
+  margin: 20px 0;
+}
+
+.card_beds {
+  height: 100px;
+  width: 200px;
+  text-align: center;
+  position: relative;
+  top: 0;
+  transition: all 0.4s;
+  border: 1px solid grey;
+  border-radius: 13px;
+  margin: 0 0 30px 0;
+}
+
+.card_beds:hover {
+  top: -10px;
+}
+
 #searchForm {
   display: flex;
   margin-top: 80px;

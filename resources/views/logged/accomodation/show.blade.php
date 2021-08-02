@@ -8,7 +8,7 @@
     </section>
 
     <div class="row row-my-panel">
-        <div class="my-panel">
+        <div class=" col-md-8 my-panel">
             {{-- image --}}
             <div class="my_actions">
                 <a class="panel-item" href="{{ route('logged.image.create', $accomodation->id) }}">
@@ -30,7 +30,7 @@
             {{-- messages --}}
             @if(count($accomodation->messages) > 0)
                 <div class="my_actions">
-                    <a class="panel-item" href="{{ route('message.index', $accomodation->id) }}" class="btn btn-primary">
+                    <a class="panel-item btn btn-primary" href="{{ route('message.index', $accomodation->id) }}" >
                         <i class="far fa-envelope"></i>
                         <span class="notify">
                             {{ count($accomodation->messages) }}
@@ -100,33 +100,9 @@
         </form>
     </div>
 
-    {{-- RIUTILIZZARE QUESTO PEZZO PER LA SHOW PUBBLICA --}}
-
-    {{-- <div class="row justify-content-center">
-        <div class="col-12 col-md-10 py-4">
-            <div class="padding-left">
-                <i class="fas fa-home my_home"></i>
-                <span class="padding-left">
-                    Casa intera.
-                    Appartamento: sarà a tua completa disposizione.
-                </span>
-            </div>
-        </div>
-        <div class="line"></div>
-    </div> --}}
 
 
-    {{-- <div class="row justify-content-center">
-        <div class="col-12 col-md-10">
-            <h3 class="text-font">Dove dormirai</h3>
-            <div>
-                <p>
-                    <i class=" my-beds fas fa-bed"></i>
-                    Camera da letto: {{ $accomodation->number_beds }}
-                </p>
-            </div>
-        </div>
-    </div> --}}
+    
 
     <div class="row justify-content-center">
         <div class="col-12 col-md-10" >
