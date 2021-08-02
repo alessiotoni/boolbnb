@@ -11838,3 +11838,31 @@ a {
   padding: 40px;
 }
 
+.message-container {
+  padding-top: 60px;
+}
+
+.message-container .btn {
+  color: #fff;
+  background-color: #71a8cd;
+  padding: 10px;
+  padding: 6px 25px;
+}
+
+.message-container .btn:hover {
+  background-color: #3490dc;
+  transition: 0.2s;
+}
+
+.message-container .form-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.message-container .form-group i {
+  font-size: 10px;
+  margin-left: 10px;
+  color: crimson;
+}
+
