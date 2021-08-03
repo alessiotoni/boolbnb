@@ -35,8 +35,11 @@
             </div>
             <div>
                 <div id="chevron-down" class="input-search-map d-flex flex-column" style="border:none;">
-                    <p style="margin-bottom: 0; transform: translateY(-1px);"><i
-                            class="fas fa-chevron-down"><b>Servizi </b></i></p>
+                    <p style="margin-bottom: 0; transform: translateY(-1px);">
+                        
+                        <span> <b>Servizi</b></span>
+                        <i class="fas fa-chevron-down"></i>
+                    </p>
                     <p style="margin-bottom: 0px; transform: translateY(-1px);"></p>
                 </div>
                 {{-- <div class="mb-3">ciao</div> --}}
@@ -62,10 +65,34 @@
         <h1 style="color: black; font-weight: 500; padding-left: 50px; padding-top: 10px">Scopri tutti gli alloggi</h1>
         <div id='store-list' style="padding-bottom: 80px"></div>
     </div>
-    <div class='map' id='map' style="width: 40%"></div>
+    <div class='map' id='map' style="width: 40%; height: 100%;"></div>
 </div>
 
 <script>
+    //media query inizio
+   
+
+ var mapQuery = document.getElementById('map');
+
+    function myFunction(x) {
+        if (x.matches) { // If media query matches
+            document.getElementById('map').style.width = "100%";
+
+            document.getElementById('map').style.left = "0";
+            console.log(x)
+
+        } else {
+            //document.mobileQuery.style.width = ;
+        }
+        }
+
+        var x = window.matchMedia("(max-width: 600px)")
+        myFunction(x) // Call listener function at run time
+        x.addListener(myFunction) 
+
+
+    //fine media query 
+
     var serviceList = document.getElementById("service-list")
     var chevron = document.getElementById("chevron-down")
     chevron.addEventListener("click", () => {
@@ -304,5 +331,6 @@
                 });
             })
     }
+
 </script>
 @endsection
